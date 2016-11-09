@@ -1,0 +1,31 @@
+[{
+	"event_id": "1",
+	"title": "Starting UI",
+	"starting_date": "29/10/2016",
+	"ending_date": "10/10/2016",
+	"host_id": "1"
+}, {
+	"event_id": "2",
+	"title": "EXO",
+	"starting_date": "07/11/2016",
+	"ending_date": "20/10/2016",
+	"host_id": "1"
+}, {
+	"event_id": "3",
+	"title": "Town Hall",
+	"starting_date": "14/11/2016",
+	"ending_date": "07/12/2016",
+	"host_id": "2"
+}, {
+	"event_id": "4",
+	"title": "Google I/O",
+	"starting_date": "03/11/2017",
+	"ending_date": "07/03/2017",
+	"host_id": "3"
+}, {
+	"event_id": "5",
+	"title": "Sticky Bubble Launch Event",
+	"starting_date": "03/03/2017",
+	"ending_date": "19/03/2017",
+	"host_id": "4"
+}]

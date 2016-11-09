@@ -1,0 +1,107 @@
+<!DOCTYPE Html>
+<html>
+
+<head>
+    <title>UI part 08</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="font-awesome-4.6.2/css/font-awesome.min.css"> </head>
+
+<body>
+    <div id="container">
+        <div id="overlay"></div>
+        <div id="header_container">
+            <div id="logo_box"></div>
+        </div>
+        <div id="align_databox_container">
+            <div id="event_container">
+                <p class="tag_colour">Add a new Event</p>
+                <div id="form_container">
+                    <form id="data_form">
+                        <div id="inputs_holder">
+                            <div class="arrange_inputs">
+                                <label class="tag_colour">Event Name</label>
+                                <br>
+                                <input name='event_Name' type="text"> </div>
+                            <div class="arrange_inputs input_move_left">
+                                <label class="tag_colour">Event Host</label>
+                                <br>
+                                <input name='event_Host' type="text"> </div>
+                            <div class="arrange_inputs">
+                                <label class="tag_colour">Starting Date</label>
+                                <br>
+                                <input name='event_Start' type="text"> </div>
+                            <div class="arrange_inputs input_move_left">
+                                <label class="tag_colour">Finishing Date</label>
+                                <br>
+                                <input name='event_End' type="text"> </div>
+                        </div>
+                        <div id="submt_holder">
+                            <div id="close_holder">
+                                <div id="ex_holder">
+                                    <div id="ex_one"></div>
+                                    <div id="ex_two"></div>
+                                </div>
+                            </div>
+                            <!--<input type="submit"  value="">-->
+                            <button id="submitEvent">Add Event</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="tag_colour">Today</p>
+            <div id="active_bar">
+                <!--<div id="active_event">
+                    <div class="date_holder">
+                        <div class="event_month arange_details active_date">OCT</div>
+                        <div class="event_day arange_details">14</div>
+                        <div class="event_year arange_details active_date">2016</div>
+                    </div>
+                    <div class="details_holder">
+                        <div class="title_box move_box">Starting UI</div>
+                        <div class="host_box move_box">Hosted by Leo Leo</div>
+                    </div>
+                    <div class="delete_btn close">
+                        <div class="icon_holder"></div>
+                    </div>
+                </div>--></div>
+            <p class="tag_colour"> <span id="event_title">Upcoming Events</span> <span class="down_list"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+                <ul class="dropdown-menu">
+                    <li><a href='#' id="next_wek">Next Week Events</a></li>
+                    <li><a href='#' id="next_month">Next Month Events</a></li>
+                    <li><a href='#' id="upcominEvent">Upcoming events</a></li>
+                </ul>
+            </p>
+            <div id="event_list_container">
+                <!--<div class="event_list_box">
+                    <div class="date_holder">
+                        <div class="event_month arange_details">OCT</div>
+                        <div class="event_day arange_details">14</div>
+                        <div class="event_year arange_details">2016</div>
+                    </div>
+                    <div class="details_holder">
+                        <div class="title_box move_box">EXO</div>
+                        <div class="host_box move_box">Hosted by Leo Leo</div>
+                    </div>
+                    <div class="delete_btn">
+                        <div class="icon_holder">
+                            <div class="delet_icon">
+                            <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>--></div>
+        </div>
+        <div id="footer_bar">
+            <div id="plus_cycle" class="plusIn">
+                <div id="plus_holder">
+                    <div id="plus_one"></div>
+                    <div id="plus_two"></div>
+                </div>
+            </div>
+            <!--<div id="loader"></div>--></div>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/engine.js" type="text/javascript"></script>
+</body>
+
+</html>
