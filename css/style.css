@@ -32,8 +32,8 @@ body {
 #event_list_container {
     width: 950px;
     height: 290px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    //overflow-y: scroll;
+    //overflow-x: hidden;
 }
 
 #overlay {
@@ -48,10 +48,18 @@ body {
 
 #align_databox_container {
     width: 950px;
-    height: auto;
+    height: 400px;
     //margin-top: 83px;
     border: 0px solid black;
     margin: 0 auto;
+    //border:1px solid white;
+}
+#all_event_container{
+    width: 950px;
+    height: 400px;
+    //border: 1px solid black;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #footer_bar {
@@ -71,6 +79,7 @@ body {
     height: 90px;
     border: 0px solid black;
     //position: fixed;
+    //border: 1px solid white;
 }
 
 #logo_box {
@@ -564,4 +573,8 @@ a {
 
 .dropdown-menu a:hover {
     color: #ffffff;
+}
+#developer_tag{
+    color: #ffffff;
+    
 }
