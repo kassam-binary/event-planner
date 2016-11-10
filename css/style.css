@@ -78,19 +78,30 @@ body {
     height: 90px;
     border: 0px solid black;
     //position: fixed;
-    border: 1px solid white;
+    //border: 1px solid white;
 }
 #menu_bar{
     width: 950px;
-    height: 20px;
+    height: 35px;
     border: 1px solid white;
     margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+}
+#user_tag{
+    width: 110px;
+    height: 30px;
+    //border: 1px solid white;
+    color: #ffffff;
+    float: right;
+    cursor: pointer;
+    text-align: center
 }
 #logo_box {
     width: 200px;
     height: 50px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 20px;
     background-image: url(../logo/event-logo.png);
     background-repeat: no-repeat;
     background-size: contain;
