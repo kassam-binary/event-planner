@@ -73,6 +73,7 @@ $(document).ready(function () {
     function delete_event(_event_id){
         $.each(events, function(i,event){
             if(event.event_id == _event_id){
+               events.splice(i,1); 
                 return;
             }
             
