@@ -65,6 +65,19 @@ $(document).ready(function () {
                     return data_box.prepend(getEvent(formEvent_Data,event_Id));
                 },200);
     };
+     /**
+     * Delete event
+     * @param {number}_event_id
+     * @return {number}
+     */
+    function delete_event(_event_id){
+        $.each(events, function(i,event){
+            if(event.event_id == _event_id){
+                return;
+            }
+            
+        });
+    };
     /**
      * Generating event ID
      * @param {number}id
@@ -174,7 +187,7 @@ $(document).ready(function () {
     function getEvent(event, index) {
         var myDate = date_formater(event);
         var event_list = "";
-        event_list += "<div class=\'event_list_box\' data-event-id="+index+">" + "<div class=\'date_holder\'>" + "<div class=\'event_month arange_details\'>" + getmonth_name(myDate.getMonth()) + "</div>" + "<div class=\'event_day arange_details\'>" + myDate.getDate() + "</div>" + "<div class=\'event_year arange_details\'>" + myDate.getFullYear() + "</div>" + "</div>" + "<div class=\'details_holder\'>" + "<div class=\'title_box move_box\'>" + event.title + "</div>" + "<div class=\'host_box move_box\'>" + "Hosted by " + getHost(event.host_id) + "</div>" + "</div>" + "<div class=\'delete_btn\'>" + "<div class=\'icon_holder\' id=\'delete_event\'>" + "<div class=\'delet_icon\'>" + "<i class=\'fa fa-trash fa-2x\' aria-hidden=\'true\'></i>" + "</div>" + "</div>" + "</div>" + "</div>";
+        event_list += "<div class=\'event_list_box\' data-event-id="+event.event_id+">" + "<div class=\'date_holder\'>" + "<div class=\'event_month arange_details\'>" + getmonth_name(myDate.getMonth()) + "</div>" + "<div class=\'event_day arange_details\'>" + myDate.getDate() + "</div>" + "<div class=\'event_year arange_details\'>" + myDate.getFullYear() + "</div>" + "</div>" + "<div class=\'details_holder\'>" + "<div class=\'title_box move_box\'>" + event.title + "</div>" + "<div class=\'host_box move_box\'>" + "Hosted by " + getHost(event.host_id) + "</div>" + "</div>" + "<div class=\'delete_btn\'>" + "<div class=\'icon_holder\' id=\'delete_event\'>" + "<div class=\'delet_icon\'>" + "<i class=\'fa fa-trash fa-2x\' aria-hidden=\'true\'></i>" + "</div>" + "</div>" + "</div>" + "</div>";
         //console.log("ziko "+menu_" +index +");
         return event_list;
     };
@@ -346,9 +359,10 @@ $(document).ready(function () {
 
     $(data_box).delegate("#delete_event", "click", function (e) {
         
-        var id = $(this).parent().parent().attr("data-event-id");
-        $(this).parent().parent().css("display","none")
-        events.splice(id, 1);
+        var event_id = $(this).parent().parent().attr("data-event-id");
+        $(this).parent().parent().fadeOut("fast");//css("display","none")
+        //events.splice(id, 1);
+        delete_event(event_id)
 
     });
 })
