@@ -401,7 +401,9 @@ $(document).ready(function () {
     
      $("#user_tag").on("click", function () {
         $("#event_title").html("Event hoster");
-        $("#dropdown_cont").css("display","none")
+        $("#dropdown_cont").css("display","none");
+         $(".down_list i").removeClass("fa fa-sort-desc");
+         $(".down_list i").addClass("fa fa-arrow-left");
          data_box.empty();
         getHosts()
     });
