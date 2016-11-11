@@ -418,11 +418,9 @@ $(document).ready(function () {
          $(".down_list i").addClass("fa fa-arrow-left");
          data_box.empty();
         getHosts()
-        console.log('clickedd');
          
          $(data_box).delegate(".host_list_box", "click",  function(){
         var host_id = $(this).attr("data-host-id");
-        console.log(host_id)
         getHost_event(host_id);
          });
         
