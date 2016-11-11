@@ -10,8 +10,8 @@ $(document).ready(function () {
             //init();
             //getHosts();
             var de = new Date()
-//            getEvents();
-            getHosts()
+            getEvents();
+            //getHosts()
             //getNext_Week_event();
             //getNext_Month_event();
             //console.log(events.length+1)
@@ -151,7 +151,7 @@ $(document).ready(function () {
      */
     function getHosts(){
         $.each(hosts, function(index,host){
-               //console.log(getHost(host.host_id));
+               console.log(getHost(host.host_id));
             var host_list ="";
                host_list+= "<div class='event_list_box'>"+
                     "<div class='date_holder'>"+
@@ -397,5 +397,11 @@ $(document).ready(function () {
         //events.splice(id, 1);
         delete_event(event_id)
 
+    });
+    
+     $("#user_tag").on("click", function () {
+        $("#event_title").html("Event hosters");
+         data_box.empty();
+        getHosts()
     });
 })
