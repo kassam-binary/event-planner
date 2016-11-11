@@ -151,6 +151,7 @@ $(document).ready(function () {
      * @return {number} host list
      */
     function getHosts(){
+        
         $.each(hosts, function(index,host){
 //               console.log(getHost(host.host_id));
             var host_list ="";
@@ -184,7 +185,9 @@ $(document).ready(function () {
     function getHost_event(hostId){
         $.each(events,function(index,event){
             if(hostId == event.host_id){
-                console.log( event.title);
+               setTimeout(function () {
+                        return data_box.append(getEvent(event, index));
+                    }, 400 + 100 * index);
             };
         });
     };
@@ -420,6 +423,7 @@ $(document).ready(function () {
         getHosts()
          
          $(data_box).delegate(".host_list_box", "click",  function(){
+             data_box.empty()
         var host_id = $(this).attr("data-host-id");
         getHost_event(host_id);
          });
