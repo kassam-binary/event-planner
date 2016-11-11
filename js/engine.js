@@ -10,7 +10,8 @@ $(document).ready(function () {
             //init();
             //getHosts();
             var de = new Date()
-            getEvents();
+//            getEvents();
+            getHosts()
             //getNext_Week_event();
             //getNext_Month_event();
             //console.log(events.length+1)
@@ -143,6 +144,34 @@ $(document).ready(function () {
             }
         });
         return hostName;
+    };
+    //getHosts()
+    function getHosts(){
+        $.each(hosts, function(index,host){
+               //console.log(getHost(host.host_id));
+            var host_list ="";
+               host_list+= "<div class='event_list_box'>"+
+                    "<div class='date_holder'>"+
+                        "<div class='event_day arange_details'></div>"+
+                    "</div>"+
+                    "<div class='details_holder'>"+
+                        "<div class='title_box move_box'>Host Name</div>"+
+                        "<div class='host_box move_box'>"+getHost(host.host_id)+"</div>"+
+                    "</div>"+
+                    "<div class='delete_btn'>"+
+                        "<div class='icon_holder'>"+
+                            "<div class='delet_icon'>"+
+                            "<i class='fa fa-trash fa-2x' aria-hidden='true'></i>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>"+
+                "</div>"+
+        "</div>";
+            setTimeout(function () {
+                    return data_box.append(host_list);
+                }, 400 + 100 * index);
+            
+               });
     };
     /**
      * Getting week number
