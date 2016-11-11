@@ -418,6 +418,7 @@ $(document).ready(function () {
         $("#event_title").html("Upcoming Events");
         $("#dropdown_cont").css("display","block");
          //$(".down_list i").removeClass("fa fa-sort-desc");
+        $(".down_list i").css("visibility","visible");
          $(".down_list i").addClass("fa fa-sort-desc");
          data_box.empty();
         $("#active_bar").empty();
@@ -436,7 +437,7 @@ $(document).ready(function () {
         var host_id = $(this).attr("data-host-id");
         getHost_event(host_id);
              $("#event_title").html("Event By "+getHost(host_id));
-             $(".down_list i").css("display","none");
+             $(".down_list i").css("visibility","hidden");
          });
         
     });
