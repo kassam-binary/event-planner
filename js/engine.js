@@ -145,7 +145,10 @@ $(document).ready(function () {
         });
         return hostName;
     };
-    //getHosts()
+    /**
+     * Getting all hosts
+     * @return {number} host list
+     */
     function getHosts(){
         $.each(hosts, function(index,host){
                //console.log(getHost(host.host_id));
