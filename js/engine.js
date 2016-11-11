@@ -12,6 +12,7 @@ $(document).ready(function () {
             var de = new Date()
             getEvents();
             //getHosts()
+            getHost_event(3);
             //getNext_Week_event();
             //getNext_Month_event();
             //console.log(events.length+1)
@@ -174,8 +175,19 @@ $(document).ready(function () {
             setTimeout(function () {
                     return data_box.append(host_list);
                 }, 400 + 100 * index);
-            
                });
+    };
+     /**
+     * Getting host event
+     * @param {number} host_id 
+     * @return {number} all event that host contribute
+     */
+    function getHost_event(hostId){
+        $.each(events,function(index,event){
+            if(hostId == event.host_id){
+                console.log( event.title);
+            };
+        });
     };
     /**
      * Getting week number
@@ -210,7 +222,7 @@ $(document).ready(function () {
         var year = remove_slash[2];
         //console.log(day);
         var iso_format = year + "-" + month + "-" + day;
-        var full_date = new Date(iso_format)
+        var full_date = new Date(iso_format);
         return full_date;
     };
     /**
@@ -268,12 +280,12 @@ $(document).ready(function () {
             });
             if (checkFor_event == false) {
                 //console.log("akuna")
-                data_box.html("No Event to Display")
+                data_box.html("No Event to Display");
             };
         };
         if (check == false) {
             // print error
-            $("#active_bar").html("No event for today")
+            $("#active_bar").html("No event for today");
         };
     };
     /**
