@@ -153,7 +153,7 @@ $(document).ready(function () {
         $.each(hosts, function(index,host){
                console.log(getHost(host.host_id));
             var host_list ="";
-               host_list+= "<div class='event_list_box'>"+
+               host_list+= "<div class='host_list_box'>"+
                     "<div class='date_holder'>"+
                         "<div class='event_day arange_details'></div>"+
                     "</div>"+
