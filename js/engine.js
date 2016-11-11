@@ -414,6 +414,16 @@ $(document).ready(function () {
 
     });
     
+    $("#event_tag").on("click", function () {
+        $("#event_title").html("Upcoming Events");
+        $("#dropdown_cont").css("display","block");
+         //$(".down_list i").removeClass("fa fa-sort-desc");
+         $(".down_list i").addClass("fa fa-sort-desc");
+         data_box.empty();
+        $("#active_bar").empty();
+        getEvents();
+    });
+    
      $("#user_tag").on("click", function () {
         $("#event_title").html("Event hoster");
         $("#dropdown_cont").css("display","none");
