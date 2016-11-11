@@ -97,6 +97,15 @@ body {
     cursor: pointer;
     text-align: center
 }
+#event_tag{
+    width: 110px;
+    height: 30px;
+    //border: 1px solid white;
+    color: #ffffff;
+    float: right;
+    cursor: pointer;
+    text-align: center
+}
 #logo_box {
     width: 200px;
     height: 50px;
