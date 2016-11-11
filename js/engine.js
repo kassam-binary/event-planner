@@ -401,6 +401,7 @@ $(document).ready(function () {
     
      $("#user_tag").on("click", function () {
         $("#event_title").html("Event hoster");
+        $("#dropdown_cont").css("display","none")
          data_box.empty();
         getHosts()
     });
