@@ -36,6 +36,7 @@ $(document).ready(function () {
     $(form).on("submit", function (e) {
         e.preventDefault();
         create_event()
+        //removing submited data on the form
         $(form)[0].reset()
     });
     /**
