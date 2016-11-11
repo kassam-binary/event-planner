@@ -400,7 +400,7 @@ $(document).ready(function () {
     });
     
      $("#user_tag").on("click", function () {
-        $("#event_title").html("Event hosters");
+        $("#event_title").html("Event hoster");
          data_box.empty();
         getHosts()
     });
