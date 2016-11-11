@@ -2,14 +2,15 @@ $(document).ready(function () {
     //object for event details
     var events;
     var hosts;
-    //get json file(data) for events
+    //get json file(data) for Events
     $.getJSON("js/eventsData.json", function (Eventsdata) {
         events = Eventsdata;
+        //get json file(data) for Hosts
         $.getJSON("js/hostsData.json", function (Hostsdata) {
             hosts = Hostsdata;
             //init();
             //getHosts();
-            var de = new Date()
+            //var de = new Date()
             getEvents();
             //getHosts()
             //getNext_Week_event();
@@ -35,9 +36,9 @@ $(document).ready(function () {
     //prevent form to submit data
     $(form).on("submit", function (e) {
         e.preventDefault();
-        create_event()
-        //removing submited data on the form
-        $(form)[0].reset()
+        create_event();
+            //removing submited data on the form
+        $(form)[0].reset();
     });
     /**
      * Creating events
@@ -52,33 +53,41 @@ $(document).ready(function () {
         var eventEnd = $("input[name=event_End").val();
         //getting lenght of the events object
         var eventLenght = events.length
-        //getting lenght of the events object
+            //getting lenght of the events object
         var hostLenght = hosts.length
-        //generating Event ID
+            //generating Event ID
         var event_Id = eventID_generate(eventLenght, events);
         //generating host ID
         var host_Id = hostID_generate(hostLenght, hosts);
-        var formHost_Data = {host_id: host_Id,profile_picture: "",username:eventHost};
+        var formHost_Data = {
+            host_id: host_Id
+            , profile_picture: ""
+            , username: eventHost
+        };
         hosts.push(formHost_Data);
-        
-        var formEvent_Data = {event_id: event_Id,title: eventName,starting_date: eventStart,ending_date: eventEnd,host_id: host_Id};
+        var formEvent_Data = {
+            event_id: event_Id
+            , title: eventName
+            , starting_date: eventStart
+            , ending_date: eventEnd
+            , host_id: host_Id
+        };
         events.unshift(formEvent_Data);
         setTimeout(function () {
-                    return data_box.prepend(getEvent(formEvent_Data,event_Id));
-                },200);
+            return data_box.prepend(getEvent(formEvent_Data, event_Id));
+        }, 200);
     };
-     /**
+    /**
      * Delete event
      * @param {number}_event_id
      * @return {number}
      */
-    function delete_event(_event_id){
-        $.each(events, function(i,event){
-            if(event.event_id == _event_id){
-               events.splice(i,1); 
+    function delete_event(_event_id) {
+        $.each(events, function (i, event) {
+            if (event.event_id == _event_id) {
+                events.splice(i, 1);
                 return;
             }
-            
         });
     };
     /**
@@ -93,11 +102,11 @@ $(document).ready(function () {
         for (var i = 0; i < event_data.length; i++) {
             if (event_data[i].event_id == id) {
                 event_check = true
-                return e_Autonumber = events.length + 1
+                return e_Autonumber = events.length + 1;
             };
         };
         if (event_check == false) {
-            return e_Autonumber = events.length + 1
+            return e_Autonumber = events.length + 1;
         };
     };
     /**
@@ -112,11 +121,11 @@ $(document).ready(function () {
         for (var i = 0; i < host_data.length; i++) {
             if (host_data[i].host_id == id) {
                 host_check = true;
-                return h_Autonumber = hosts.length + 1
+                return h_Autonumber = hosts.length + 1;
             };
         };
         if (host_check == false) {
-            return h_Autonumber = hosts.length + 1
+            return h_Autonumber = hosts.length + 1;
         };
     };
     /**
@@ -150,44 +159,27 @@ $(document).ready(function () {
      * Getting all hosts
      * @return {number} host list
      */
-    function getHosts(){
-        
-        $.each(hosts, function(index,host){
-//               console.log(getHost(host.host_id));
-            var host_list ="";
-               host_list+= "<div class='host_list_box' data-host-id="+host.host_id+">"+
-                    "<div class='date_holder'>"+
-                        "<div class='event_day arange_details'></div>"+
-                    "</div>"+
-                    "<div class='details_holder'>"+
-                        "<div class='title_box move_box'>Host Name</div>"+
-                        "<div class='host_box move_box'>"+getHost(host.host_id)+"</div>"+
-                    "</div>"+
-                    "<div class='delete_btn'>"+
-                        "<div class='icon_holder'>"+
-                            "<div class='delet_icon'>"+
-                            "<i class='fa fa-trash fa-2x' aria-hidden='true'></i>"+
-                            "</div>"+
-                        "</div>"+
-                    "</div>"+
-                "</div>"+
-        "</div>";
+    function getHosts() {
+        $.each(hosts, function (index, host) {
+            //               console.log(getHost(host.host_id));
+            var host_list = "";
+            host_list += "<div class='host_list_box' data-host-id=" + host.host_id + ">" + "<div class='date_holder'>" + "<div class='event_day arange_details'></div>" + "</div>" + "<div class='details_holder'>" + "<div class='title_box move_box'>Host Name</div>" + "<div class='host_box move_box'>" + getHost(host.host_id) + "</div>" + "</div>" + "<div class='delete_btn'>" + "<div class='icon_holder'>" + "<div class='delet_icon'>" + "<i class='fa fa-trash fa-2x' aria-hidden='true'></i>" + "</div>" + "</div>" + "</div>" + "</div>" + "</div>";
             setTimeout(function () {
-                    return data_box.append(host_list);
-                }, 400 + 100 * index);
-               });
+                return data_box.append(host_list);
+            }, 400 + 100 * index);
+        });
     };
-     /**
+    /**
      * Getting host event
      * @param {number} host_id 
      * @return {number} all event that host contribute
      */
-    function getHost_event(hostId){
-        $.each(events,function(index,event){
-            if(hostId == event.host_id){
-               setTimeout(function () {
-                        return data_box.append(getEvent(event, index));
-                    }, 400 + 100 * index);
+    function getHost_event(hostId) {
+        $.each(events, function (index, event) {
+            if (hostId == event.host_id) {
+                setTimeout(function () {
+                    return data_box.append(getEvent(event, index));
+                }, 400 + 100 * index);
             };
         });
     };
@@ -235,7 +227,7 @@ $(document).ready(function () {
     function getEvent(event, index) {
         var myDate = date_formater(event);
         var event_list = "";
-        event_list += "<div class=\'event_list_box\' data-event-id="+event.event_id+">" + "<div class=\'date_holder\'>" + "<div class=\'event_month arange_details\'>" + getmonth_name(myDate.getMonth()) + "</div>" + "<div class=\'event_day arange_details\'>" + myDate.getDate() + "</div>" + "<div class=\'event_year arange_details\'>" + myDate.getFullYear() + "</div>" + "</div>" + "<div class=\'details_holder\'>" + "<div class=\'title_box move_box\'>" + event.title + "</div>" + "<div class=\'host_box move_box\'>" + "Hosted by " + getHost(event.host_id) + "</div>" + "</div>" + "<div class=\'delete_btn\'>" + "<div class=\'icon_holder\' id=\'delete_event\'>" + "<div class=\'delet_icon\'>" + "<i class=\'fa fa-trash fa-2x\' aria-hidden=\'true\'></i>" + "</div>" + "</div>" + "</div>" + "</div>";
+        event_list += "<div class=\'event_list_box\' data-event-id=" + event.event_id + ">" + "<div class=\'date_holder\'>" + "<div class=\'event_month arange_details\'>" + getmonth_name(myDate.getMonth()) + "</div>" + "<div class=\'event_day arange_details\'>" + myDate.getDate() + "</div>" + "<div class=\'event_year arange_details\'>" + myDate.getFullYear() + "</div>" + "</div>" + "<div class=\'details_holder\'>" + "<div class=\'title_box move_box\'>" + event.title + "</div>" + "<div class=\'host_box move_box\'>" + "Hosted by " + getHost(event.host_id) + "</div>" + "</div>" + "<div class=\'delete_btn\'>" + "<div class=\'icon_holder\' id=\'delete_event\'>" + "<div class=\'delet_icon\'>" + "<i class=\'fa fa-trash fa-2x\' aria-hidden=\'true\'></i>" + "</div>" + "</div>" + "</div>" + "</div>";
         //console.log("ziko "+menu_" +index +");
         return event_list;
     };
@@ -278,7 +270,7 @@ $(document).ready(function () {
                 }
                 else {
                     //checkFor_event = false; 
-                }
+                };
             });
             if (checkFor_event == false) {
                 //console.log("akuna")
@@ -348,7 +340,7 @@ $(document).ready(function () {
     function getmonth_name(month_number) {
         var month_name = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         return month_name[month_number];
-    }
+    };
     $(drop).on("click", function () {
         if ($(".dropdown-menu").hasClass("drop_open")) {
             $(".dropdown-menu").removeClass("drop_open");
@@ -367,7 +359,7 @@ $(document).ready(function () {
         $(this).removeClass("plusIn");
         $(this).addClass("plusOut");
         fade_();
-    })
+    });
     $(close_button).on("click", function () {
         if (event_container.hasClass("expand")) {
             event_container.removeClass("expand").addClass("collap");
@@ -388,7 +380,7 @@ $(document).ready(function () {
     $("#next_wek").on("click", function () {
         $(".dropdown-menu").css("display", "none");
         $("#event_title").html("Next Week Events");
-        getNext_Week_event()
+        getNext_Week_event();
     });
     $("#upcominEvent").on("click", function () {
         $(".dropdown-menu").css("display", "none");
@@ -404,43 +396,35 @@ $(document).ready(function () {
         $("#active_bar").empty();
         getNext_Month_event();
     });
-
     $(data_box).delegate("#delete_event", "click", function (e) {
-        
         var event_id = $(this).parent().parent().attr("data-event-id");
-        $(this).parent().parent().fadeOut("fast");//css("display","none")
+        $(this).parent().parent().fadeOut("fast"); //css("display","none")
         //events.splice(id, 1);
-        delete_event(event_id)
-
+        delete_event(event_id);
     });
-    
     $("#event_tag").on("click", function () {
         $("#event_title").html("Upcoming Events");
-        $("#dropdown_cont").css("display","block");
-         //$(".down_list i").removeClass("fa fa-sort-desc");
-        $(".down_list i").css("visibility","visible");
-         $(".down_list i").addClass("fa fa-sort-desc");
-         data_box.empty();
+        $("#dropdown_cont").css("display", "block");
+        //$(".down_list i").removeClass("fa fa-sort-desc");
+        $(".down_list i").css("visibility", "visible");
+        $(".down_list i").addClass("fa fa-sort-desc");
+        data_box.empty();
         $("#active_bar").empty();
         getEvents();
     });
-    
-     $("#user_tag").on("click", function () {
+    $("#user_tag").on("click", function () {
         $("#event_title").html("Event hoster");
-        $("#dropdown_cont").css("display","none");
-         $(".down_list i").removeClass("fa fa-sort-desc");
-         //$(".down_list i").addClass("fa fa-arrow-left");
-         data_box.empty();
-        getHosts()
-         $(data_box).delegate(".host_list_box", "click",  function(){
-             data_box.empty()
-        var host_id = $(this).attr("data-host-id");
-        getHost_event(host_id);
-             $("#event_title").html("Event By "+getHost(host_id));
-             $(".down_list i").css("visibility","hidden");
-         });
-        
+        $("#dropdown_cont").css("display", "none");
+        $(".down_list i").removeClass("fa fa-sort-desc");
+        //$(".down_list i").addClass("fa fa-arrow-left");
+        data_box.empty();
+        getHosts();
+        $(data_box).delegate(".host_list_box", "click", function () {
+            data_box.empty();
+            var host_id = $(this).attr("data-host-id");
+            getHost_event(host_id);
+            $("#event_title").html("Event By " + getHost(host_id));
+            $(".down_list i").css("visibility", "hidden");
+        });
     });
-        
-    
 })
