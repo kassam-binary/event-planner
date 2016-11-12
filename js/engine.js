@@ -175,6 +175,7 @@ $(document).ready(function () {
      * @return {number} all event that host contribute
      */
     function getHost_event(hostId) {
+        //data_box.html('');
         $.each(events, function (index, event) {
             if (hostId == event.host_id) {
                 setTimeout(function () {
@@ -419,12 +420,18 @@ $(document).ready(function () {
         //$(".down_list i").addClass("fa fa-arrow-left");
         data_box.empty();
         getHosts();
-        $(data_box).delegate(".host_list_box", "click", function () {
+        
+    });
+    $(data_box).delegate(".host_list_box", "click", function () {
             data_box.empty();
             var host_id = $(this).attr("data-host-id");
             getHost_event(host_id);
             $("#event_title").html("Event By " + getHost(host_id));
             $(".down_list i").css("visibility", "hidden");
+//        setTimeout(function(){
+//            console.log("waited 3 seconds");
+//             $(".host_box").css("visibility","hidden");
+//        },0000);
+           
         });
-    });
 })
